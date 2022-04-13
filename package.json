@@ -1,0 +1,41 @@
+{
+  "name": "alright-react-app",
+  "version": "1.0.0",
+  "description": "Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config. Jest-SWC, Storybook, SWC, Typescript, Webpack 5, Husky.",
+  "main": "index.js",
+  "author": "DoneDeal0",
+  "license": "ISC",
+  "type": "module",
+  "declaration": true,
+  "man": [
+    "./man/index.1",
+    "./man/create-directory-content.1",
+    "./man/create-project.1",
+    "./man/intro-message.1"
+  ],
+  "keywords": [
+    "react",
+    "reactjs",
+    "create react app",
+    "create-react-app",
+    "alright pro react app",
+    "alright-pro-react-app",
+    "pro",
+    "professional",
+    "production",
+    "generator",
+    "swc"
+  ],
+  "bin": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoneDeal0/alright-react-app"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "inquirer": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

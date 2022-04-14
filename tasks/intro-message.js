@@ -5,7 +5,7 @@ export function displayIntroMessage() {
   console.log(
     "",
     "\n",
-    "Alright, alright, alright! Let's create a professional React app!",
+    "Alright, alright, alright! Let's create a new React app!",
     "\n"
   );
 }

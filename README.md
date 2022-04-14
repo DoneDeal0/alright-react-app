@@ -3,7 +3,7 @@
 Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config.
 Jest-SWC, Storybook, SWC, Typescript, Webpack 5.
 
-<img width="503" alt="alright-react-app-in-terminal" src="https://user-images.githubusercontent.com/43271780/163373194-491048c8-9e9c-4833-aa65-11af63ef0472.png">
+<img width="431" alt="alright-react-app-in-terminal" src="https://user-images.githubusercontent.com/43271780/163389884-36c6288e-522a-40bd-aafb-0bfc20f3c955.png">
 
 # GETTING STARTED
 

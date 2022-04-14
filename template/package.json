@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "ISC",
+  "author": "DoneDeal0",
   "scripts": {
     "build": "webpack",
     "build-storybook": "build-storybook",

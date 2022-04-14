@@ -2,8 +2,8 @@ import React from "react";
 
 export function ErrorLayout() {
   return (
-    <Root>
+    <div>
       <button onClick={() => window.location.assign("/")}>Refresh</button>
-    </Root>
+    </div>
   );
 }

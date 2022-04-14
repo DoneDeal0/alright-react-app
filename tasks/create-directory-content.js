@@ -20,7 +20,6 @@ export function createDirectoryContent(
 ) {
   const filesToCreate = fs.readdirSync(templatePath);
   filesToCreate.forEach((file) => {
-    console.log("file", file);
     const currentPath = `${templatePath}/${file}`;
     const fileType = fs.statSync(currentPath);
     if (fileType.isFile()) {

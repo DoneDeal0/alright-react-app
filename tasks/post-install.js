@@ -2,7 +2,7 @@ import chalk from "chalk";
 
 const runLine = (name) =>
   `now run ${chalk.bgYellow.black.bold(
-    `cd ${name} && npm install (or yarn install)`
+    `cd ${name} && yarn install`
   )} to get some fun!`;
 
 export function postInstall(projectName) {
@@ -18,16 +18,16 @@ export function postInstall(projectName) {
     "\n",
     "\n",
     chalk.yellow.bold("START"),
-    ": npm/yarn dev",
+    ": yarn dev",
     "\n",
     chalk.yellow.bold("BUILD"),
-    ": npm/yarn build",
+    ": yarn build",
     "\n",
     chalk.yellow.bold("STORYBOOK"),
-    ": npm/yarn storybook",
+    ": yarn storybook",
     "\n",
     chalk.yellow.bold("TEST"),
-    ": npm/yarn test",
+    ": yarn test",
     "\n",
     "\n",
     "Have a pleasant coding!",

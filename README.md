@@ -13,8 +13,8 @@ In your terminal, type:
 npx alright-react-app
 ```
 
-The `npx` command is available if `npm` is globally isntalled on your computer.
-**Alright Create App** will ask you to enter an app name. Then, you only have to press enter.
+The `npx` command is available if `npm` is globally installed on your computer.
+**Alright Create App** will ask you to enter an app name. Then, you only have to press `enter`.
 
 The following folder will be created at the root of your current working directory:
 
@@ -61,18 +61,18 @@ my-app
 Once the app is created, type:
 
 ```js
-cd my-app && npm install
+cd my-app && yarn install
 ```
 
 # COMMANDS
 
-**START**: npm/yarn dev
+**START**: yarn dev
 
-**BUILD**: npm/yarn build
+**BUILD**: yarn build
 
-**STORYBOOK**: npm/yarn storybook
+**STORYBOOK**: yarn storybook
 
-**TEST**: npm/yarn test
+**TEST**: yarn test
 
 ## CREDITS
 

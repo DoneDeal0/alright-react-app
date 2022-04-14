@@ -1,6 +1,16 @@
 #!/usr/bin/env node
 "use strict";
 import fs from "fs";
+import os from "os";
+
+function writePackageJSON(writePath, fileContent, projectName) {
+  const userName = os.userInfo().username || "";
+  const parsedJSON = JSON.parse(fileContent);
+  parsedJSON.name = projectName;
+  parsedJSON.author = userName;
+  const updatedJSON = JSON.stringify(parsedJSON, null, 4);
+  return fs.writeFileSync(writePath, updatedJSON, "utf8");
+}
 
 export function createDirectoryContent(
   templatePath,
@@ -16,10 +26,7 @@ export function createDirectoryContent(
       const fileContent = fs.readFileSync(currentPath, "utf8");
       const writePath = `${directory}/${newPath}/${file}`;
       if (file === "package.json") {
-        const parsedJSON = JSON.parse(fileContent);
-        parsedJSON.name = projectName;
-        const updatedJSON = JSON.stringify(parsedJSON, null, 4);
-        return fs.writeFileSync(writePath, updatedJSON, "utf8");
+        return writePackageJSON(writePath, fileContent, projectName);
       }
       return fs.writeFileSync(writePath, fileContent, "utf8");
     }

@@ -1,7 +1,7 @@
 {
   "name": "alright-react-app",
-  "version": "1.0.0",
-  "description": "Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config. Jest-SWC, Storybook, SWC, Typescript, Webpack 5, Husky.",
+  "version": "1.0.1",
+  "description": "Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config. Jest-SWC, Storybook, SWC, Typescript, Webpack 5.",
   "main": "index.js",
   "author": "DoneDeal0",
   "license": "ISC",

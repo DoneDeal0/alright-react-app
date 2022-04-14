@@ -30,6 +30,7 @@ my-app
 ├── .gitignore
 ├── .eslintrc.js
 ├── .eslintignore
+├── .env
 └── src
     ├── index.tsx
     ├── index.html

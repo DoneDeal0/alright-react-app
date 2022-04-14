@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 const resolve = (_path) => path.resolve(__dirname, _path);
 
 module.exports = {
@@ -15,5 +15,4 @@ module.exports = {
   transform: { "^.+\\.(t|j)sx?$": ["@swc/jest"] },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   moduleFileExtensions: ["js", "jsx", "json", "ts", "tsx"],
-  },
 };

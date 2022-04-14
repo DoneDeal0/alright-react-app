@@ -20,6 +20,7 @@ export function createDirectoryContent(
 ) {
   const filesToCreate = fs.readdirSync(templatePath);
   filesToCreate.forEach((file) => {
+    console.log("file", file);
     const currentPath = `${templatePath}/${file}`;
     const fileType = fs.statSync(currentPath);
     if (fileType.isFile()) {
@@ -27,6 +28,10 @@ export function createDirectoryContent(
       const writePath = `${directory}/${newPath}/${file}`;
       if (file === "package.json") {
         return writePackageJSON(writePath, fileContent, projectName);
+      }
+      if (file === "env" || file === "gitignore") {
+        const dotPath = `${directory}/${newPath}/.${file}`;
+        return fs.writeFileSync(dotPath, fileContent, "utf8");
       }
       return fs.writeFileSync(writePath, fileContent, "utf8");
     }

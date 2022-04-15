@@ -11,7 +11,8 @@
     "lint": "eslint . --ext .js,.ts,.tsx",
     "start": "yarn build/index.js",
     "storybook": "start-storybook -p 6006",
-    "test": "jest --maxWorkers=50%"
+    "test": "jest --maxWorkers=50%",
+    "tsc": "tsc --noEmit --skipLibCheck --incremental"
   },
   "dependencies": {
     "react": "^18.0.0",

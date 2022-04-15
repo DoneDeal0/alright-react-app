@@ -25,7 +25,6 @@ export function createProject(directory, __dirname) {
     .then((answer) => {
       const projectName = answer["project-name"];
       const templatePath = `${__dirname}/template`;
-      console;
       fs.mkdirSync(`${directory}/${projectName}`);
       createDirectoryContent(templatePath, projectName, projectName, directory);
       return projectName;

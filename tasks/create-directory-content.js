@@ -3,46 +3,60 @@
 import fs from "fs";
 import os from "os";
 
-function writePackageJSON(writePath, fileContent, projectName) {
+async function writePackageJSON(path, fileContent, projectName) {
   const userName = os.userInfo().username || "";
   const parsedJSON = JSON.parse(fileContent);
   parsedJSON.name = projectName;
   parsedJSON.author = userName;
   const updatedJSON = JSON.stringify(parsedJSON, null, 4);
-  return fs.writeFileSync(writePath, updatedJSON, "utf8");
+  return fs.writeFileSync(path, updatedJSON, "utf8");
 }
 
-export function createDirectoryContent(
+async function createFile(srcPath, destPath, fileName, projectName) {
+  const fileContent = fs.readFileSync(srcPath, "utf8");
+  if (fileName === "package.json") {
+    writePackageJSON(destPath, fileContent, projectName);
+  } else if (fileName === "env" || fileName === "gitignore") {
+    const dotPath = `${destPath.replace(fileName, `.${fileName}`)}`;
+    fs.writeFileSync(dotPath, fileContent, "utf8");
+  } else {
+    fs.writeFileSync(destPath, fileContent, "utf8");
+  }
+}
+
+export async function createDirectoryContent(
   templatePath,
   newPath,
   projectName,
   directory
 ) {
-  const filesToCreate = fs.readdirSync(templatePath);
-  filesToCreate.forEach((file) => {
-    const currentPath = `${templatePath}/${file}`;
-    const fileType = fs.statSync(currentPath);
-    if (fileType.isFile()) {
-      const fileContent = fs.readFileSync(currentPath, "utf8");
-      const writePath = `${directory}/${newPath}/${file}`;
-      if (file === "package.json") {
-        return writePackageJSON(writePath, fileContent, projectName);
+  try {
+    const filesToCreate = fs.readdirSync(templatePath);
+
+    for (const file of filesToCreate) {
+      const currentPath = `${templatePath}/${file}`;
+      const fileType = fs.statSync(currentPath);
+
+      if (fileType.isFile()) {
+        await createFile(
+          currentPath,
+          `${directory}/${newPath}/${file}`,
+          file,
+          projectName
+        );
       }
-      if (file === "env" || file === "gitignore") {
-        const dotPath = `${directory}/${newPath}/.${file}`;
-        return fs.writeFileSync(dotPath, fileContent, "utf8");
+
+      if (fileType.isDirectory()) {
+        fs.mkdirSync(`${directory}/${newPath}/${file}`);
+        await createDirectoryContent(
+          currentPath,
+          `${newPath}/${file}`,
+          projectName,
+          directory
+        );
       }
-      return fs.writeFileSync(writePath, fileContent, "utf8");
     }
-    if (fileType.isDirectory()) {
-      fs.mkdirSync(`${directory}/${newPath}/${file}`);
-      return createDirectoryContent(
-        `${templatePath}/${file}`,
-        `${newPath}/${file}`,
-        projectName,
-        directory
-      );
-    }
-    return null;
-  });
+  } catch (err) {
+    throw new Error(err);
+  }
 }

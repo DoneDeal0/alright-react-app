@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 "use strict";
-import inquirer from "inquirer";
+import chalk from "chalk";
 import fs from "fs";
-import { postInstall } from "./post-install.js";
+import inquirer from "inquirer";
+import path from "path";
+import { spawnSync } from "child_process";
+import which from "which";
 import { createDirectoryContent } from "./create-directory-content.js";
+import { postInstall } from "./post-install.js";
+import { preInstall } from "./pre-install.js";
 
-export const QUESTION = [
+const QUESTION = [
   {
     name: "project-name",
     type: "input",
@@ -19,16 +24,39 @@ export const QUESTION = [
   },
 ];
 
-export function createProject(directory, __dirname) {
-  return inquirer
-    .prompt(QUESTION)
-    .then((answer) => {
-      const projectName = answer["project-name"];
-      const templatePath = `${__dirname}/template`;
-      fs.mkdirSync(`${directory}/${projectName}`);
-      createDirectoryContent(templatePath, projectName, projectName, directory);
-      return projectName;
-    })
-    .then((name) => postInstall(name))
-    .catch((err) => console.error("An error occured! Here is why:", err));
+export async function createProject(directory, __dirname) {
+  try {
+    const answer = await inquirer.prompt(QUESTION);
+    const projectName = answer["project-name"];
+    const templatePath = `${__dirname}/template`;
+    const projectPath = path.join(directory, projectName);
+    fs.mkdirSync(projectPath);
+    await createDirectoryContent(
+      templatePath,
+      projectName,
+      projectName,
+      directory
+    );
+    process.chdir(projectPath);
+    const hasYarn = await which("yarn", { nothrow: true });
+    const command = hasYarn ? "yarn" : "npm";
+    preInstall(projectName, command);
+    const { error } = spawnSync(command, ["install"], {
+      cwd: projectPath,
+      stdio: "inherit",
+    });
+    if (error) {
+      console.error(
+        chalk.red.bold(
+          `An error occurred while running '${command} install':`,
+          error
+        )
+      );
+    } else {
+      const _command = hasYarn ? "yarn" : "npm run";
+      postInstall(projectName, _command);
+    }
+  } catch (err) {
+    console.error(chalk.red.bold("An error occurred! Here is why:", err));
+  }
 }

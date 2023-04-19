@@ -1,3 +1,5 @@
+<img width="952" alt="Screenshot 2023-04-19 at 12 52 14" src="https://user-images.githubusercontent.com/43271780/233053479-bb7dac6e-f992-436a-87d8-5be11f9d92b6.png">
+
 # ALRIGHT REACT APP
 
 Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config.
@@ -58,22 +60,33 @@ my-app
 
 ```
 
-Once the app is created, type:
-
-```js
-cd my-app && yarn install
-```
+Once the app is created, type `cd my-app`
 
 # COMMANDS
 
-**START**: yarn dev
+**DEV**: `yarn|npm run dev`
 
-**BUILD**: yarn build
+**BUILD**: `yarn|npm run build`
 
-**STORYBOOK**: yarn storybook
+**STORYBOOK**: `yarn|npm run storybook`
 
-**TEST**: yarn test
+**TEST**: `yarn|npm run test`
 
 ## CREDITS
 
 DoneDeal0
+
+## SUPPORT
+
+If you or your company use Alright React App, please show your support by buying me a coffee:
+https://www.buymeacoffee.com/donedeal0
+
+<br/>
+<a href="https://www.buymeacoffee.com/donedeal0" target="_blank">
+<img src="https://user-images.githubusercontent.com/43271780/178990049-46b05704-1344-4d55-a5a7-7265724edc5c.png"/>
+</a>
+<br/>
+
+## CONTRIBUTING
+
+Pull requests are welcome!

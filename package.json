@@ -1,6 +1,6 @@
 {
   "name": "alright-react-app",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config. Jest-SWC, Storybook, SWC, Typescript, Webpack 5.",
   "main": "index.js",
   "author": "DoneDeal0",
@@ -28,6 +28,7 @@
   "dependencies": {
     "chalk": "^5.2.0",
     "inquirer": "^9.1.5",
+    "ora": "^6.3.0",
     "which": "^3.0.0"
   },
   "engines": {

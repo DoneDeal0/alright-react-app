@@ -3,9 +3,9 @@
 # ALRIGHT REACT APP
 
 Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config.
-Jest-SWC, Storybook, SWC, Typescript, Webpack 5.
+Jest-SWC, Storybook, SWC, Typescript 5, Webpack 5.
 
-<img width="431" alt="alright-react-app-in-terminal" src="https://user-images.githubusercontent.com/43271780/163389884-36c6288e-522a-40bd-aafb-0bfc20f3c955.png">
+<img width="461" alt="Screenshot 2023-04-19 at 15 52 27" src="https://user-images.githubusercontent.com/43271780/233097410-90ca4a37-f368-451d-9dd0-4b60a954c53e.png">
 
 # GETTING STARTED
 

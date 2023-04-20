@@ -5,7 +5,7 @@
 Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config.
 Jest-SWC, Storybook, SWC, Typescript 5, Webpack 5.
 
-<img width="461" alt="Screenshot 2023-04-19 at 15 52 27" src="https://user-images.githubusercontent.com/43271780/233097410-90ca4a37-f368-451d-9dd0-4b60a954c53e.png">
+<img width="467" alt="Screenshot 2023-04-20 at 16 09 51" src="https://user-images.githubusercontent.com/43271780/233392542-6346ac1d-0f94-4a07-87f3-cf836bf97c22.png">
 
 # GETTING STARTED
 
@@ -16,7 +16,7 @@ npx alright-react-app
 ```
 
 The `npx` command is available if `npm` is globally installed on your computer.
-**Alright Create App** will ask you to enter an app name. Then, you only have to press `enter`.
+**Alright React App** will ask you to enter an app name. Then, you only have to press `enter`.
 
 The following folder will be created at the root of your current working directory:
 

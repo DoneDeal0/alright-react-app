@@ -15,7 +15,7 @@ export async function installDependencies(command, projectPath) {
     });
 
     installationProcess.on("exit", () => {
-      spinner.succeed("Dependencies installed successfully");
+      spinner.succeed("All dependencies have been installed");
       resolve();
     });
   });

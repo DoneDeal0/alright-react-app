@@ -1,7 +1,7 @@
 import chalk from "chalk";
 
 const runLine = (name) =>
-  `now run ${chalk.bgYellow.black.bold(`cd ${name}`)} to get some fun!`;
+  `now run ${chalk.bgYellow.black.bold(`cd ${name}`)} to have fun!`;
 
 export function postInstall(projectName, command) {
   console.log(
@@ -26,9 +26,6 @@ export function postInstall(projectName, command) {
     "\n",
     chalk.yellow.bold("TEST"),
     `: ${command} test`,
-    "\n",
-    "\n",
-    "Have a pleasant coding!",
     "\n"
   );
 }

@@ -2,8 +2,8 @@
 
 # ALRIGHT REACT APP
 
-Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config.
-Jest-SWC, Storybook, SWC, Typescript 5, Webpack 5.
+Professional React app generator. Comes with an exposed, unopinionated, high performance configuration.
+Jest SWC, Storybook, SWC, Typescript 5, Webpack 5.
 
 <img width="467" alt="Screenshot 2023-04-20 at 16 09 51" src="https://user-images.githubusercontent.com/43271780/233392542-6346ac1d-0f94-4a07-87f3-cf836bf97c22.png">
 
@@ -15,8 +15,8 @@ In your terminal, type:
 npx alright-react-app
 ```
 
-The `npx` command is available if `npm` is globally installed on your computer.
-**Alright React App** will ask you to enter an app name. Then, you only have to press `enter`.
+The `npx` command is available if `npm` is installed globally on your computer.
+**Alright React App** will ask you to enter an application name. Then you just have to press `enter`.
 
 The following folder will be created at the root of your current working directory:
 
@@ -60,7 +60,7 @@ my-app
 
 ```
 
-Once the app is created, type `cd my-app`
+Once the application is created, type `cd my-app'.
 
 # COMMANDS
 
@@ -72,13 +72,17 @@ Once the app is created, type `cd my-app`
 
 **TEST**: `yarn|npm run test`
 
+# STORYBOOK
+
+You must install Storybook globally: `npm i -g @storybook/cli` to use it.
+
 ## CREDITS
 
 DoneDeal0
 
 ## SUPPORT
 
-If you or your company use Alright React App, please show your support by buying me a coffee:
+If you or your company is using the Alright React App, please show your support by buying me a coffee:
 https://www.buymeacoffee.com/donedeal0
 
 <br/>

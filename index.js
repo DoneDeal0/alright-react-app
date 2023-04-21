@@ -2,8 +2,8 @@
 "use strict";
 import { createProject } from "./tasks/create-project.js";
 import { dirname } from "path";
-import { displayIntroMessage } from "./tasks/intro-message.js";
+import { introMessage } from "./tasks/output.js";
 import { fileURLToPath } from "url";
 
-displayIntroMessage();
+introMessage();
 createProject(process.cwd(), dirname(fileURLToPath(import.meta.url)));

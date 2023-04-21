@@ -16,14 +16,25 @@ export function preInstallMessage(projectName, command) {
     `${chalk.yellow.bold("✓")}`,
     `${chalk.yellow.bold(projectName)}'s files and folders have been created`,
     "\n",
-    `${chalk.green.bold("✓")}`,
-    `${chalk.green.bold(command)} detected`,
-    "\n"
+    `${chalk.yellow.bold("✓")}`,
+    `${chalk.yellow.bold(command)} detected`
   );
 }
 
-export function gitMessage() {
-  console.log("\n", `${chalk.yellow.bold("✓")}`, `git Instantiated`);
+export function gitMessage(hasGit) {
+  if (hasGit) {
+    console.log(
+      `${chalk.yellow.bold(" ✓")}`,
+      `${chalk.yellow.bold("git")} initialized`,
+      "\n"
+    );
+  } else {
+    console.log(
+      `${chalk.red.bold(" ×")}`,
+      `${chalk.red.bold("git")} couldn't be initialized`,
+      "\n"
+    );
+  }
 }
 
 const runLine = (name) =>

@@ -24,21 +24,27 @@ export async function installDependencies(command, projectPath) {
   });
 }
 
-export async function instantiateGit(projectPath) {
-  const hasGit = await which("git", { nothrow: true });
-  if (hasGit) {
-    const gitConfig = spawn("git", [
-      "config",
-      "--global",
-      "init.defaultBranch",
-      "main",
-    ]);
-    await promisify(gitConfig.on.bind(gitConfig))("close");
-    const gitInit = spawn("git", ["init"], {
-      cwd: projectPath,
-      stdio: "ignore",
-    });
-    await promisify(gitInit.on.bind(gitInit))("close");
-    gitMessage();
+export async function initializeGit(projectPath) {
+  try {
+    const hasGit = await which("git", { nothrow: true });
+    if (hasGit) {
+      const gitConfig = spawn("git", [
+        "config",
+        "--global",
+        "init.defaultBranch",
+        "main",
+      ]);
+      await promisify(gitConfig.on.bind(gitConfig))("close");
+      const gitInit = spawn("git", ["init"], {
+        cwd: projectPath,
+        stdio: "ignore",
+      });
+      await promisify(gitInit.on.bind(gitInit))("close");
+      gitMessage(hasGit);
+    } else {
+      gitMessage(hasGit);
+    }
+  } catch (_) {
+    gitMessage(false);
   }
 }

@@ -6,7 +6,7 @@ import inquirer from "inquirer";
 import path from "path";
 import which from "which";
 import { createDirectoryContent } from "./create-directory-content.js";
-import { installDependencies, instantiateGit } from "./installation.js";
+import { installDependencies, initializeGit } from "./installation.js";
 import { preInstallMessage, postInstallMessage } from "./output.js";
 import { question } from "./question.js";
 
@@ -27,7 +27,7 @@ export async function createProject(directory, __dirname) {
     const hasYarn = await which("yarn", { nothrow: true });
     const command = hasYarn ? "yarn" : "npm";
     preInstallMessage(projectName, command);
-    await instantiateGit(projectPath);
+    await initializeGit(projectPath);
     await installDependencies(command, projectPath);
     const _command = hasYarn ? "yarn" : "npm run";
     postInstallMessage(projectName, _command);

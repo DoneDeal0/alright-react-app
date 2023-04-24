@@ -1,11 +1,11 @@
 /* eslint-env node */
-const path = require("path");
-const zlib = require("zlib");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
+const zlib = require("zlib");
 
 const getPlugins = (isProduction) => {
   const plugins = [
@@ -61,12 +61,8 @@ module.exports = (env) => {
     resolve: {
       extensions: [".ts", ".tsx", ".js", "jsx", ".json"],
       alias: {
-        api: path.resolve(__dirname, "src/api/"),
         assets: path.resolve(__dirname, "src/assets/"),
         components: path.resolve(__dirname, "src/components/"),
-        containers: path.resolve(__dirname, "src/containers/"),
-        hooks: path.resolve(__dirname, "src/hooks/"),
-        models: path.resolve(__dirname, "src/models/"),
         pages: path.resolve(__dirname, "src/pages/"),
         src: path.resolve(__dirname, "src/"),
       },
@@ -76,7 +72,6 @@ module.exports = (env) => {
         {
           test: /\.(ts|js)x?$/,
           exclude: /node_modules/,
-
           use: { loader: "swc-loader" },
         },
         { test: /\.css$/, use: ["style-loader", "css-loader"] },

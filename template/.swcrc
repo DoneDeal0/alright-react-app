@@ -6,18 +6,10 @@
       "dynamicImport": true
     },
     "paths": {
-      "assets/*": [
-        "src/assets/*"
-      ],
-      "components/*": [
-        "src/components/*"
-      ],
-      "pages/*": [
-        "src/pages/*"
-      ],
-      "src/*": [
-        "src/*"
-      ]
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "src/*": ["src/*"]
     },
     "target": "es2016"
   }

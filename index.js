@@ -1,9 +1,21 @@
 #!/usr/bin/env node
 "use strict";
-import { createProject } from "./tasks/create-project.js";
+import chalk from "chalk";
 import { dirname } from "path";
-import { introMessage } from "./tasks/output.js";
 import { fileURLToPath } from "url";
+import { createProject } from "./tasks/create-project.js";
+import { introMessage } from "./tasks/output.js";
+import { isValidNodeVersion } from "./tasks/checks.js";
 
-introMessage();
-createProject(process.cwd(), dirname(fileURLToPath(import.meta.url)));
+if (isValidNodeVersion()) {
+  introMessage();
+  createProject(process.cwd(), dirname(fileURLToPath(import.meta.url)));
+} else {
+  console.error(
+    "\n",
+    chalk.red.bold(
+      `Alright React App requires Node 16.14.0 or higher. Your version is ${process.versions.node}.`
+    ),
+    "\n"
+  );
+}

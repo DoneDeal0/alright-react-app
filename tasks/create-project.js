@@ -4,7 +4,7 @@ import chalk from "chalk";
 import fs from "fs";
 import inquirer from "inquirer";
 import path from "path";
-import which from "which";
+import { getCommand } from "./checks.js";
 import { createDirectoryContent } from "./create-directory-content.js";
 import { installDependencies, initializeGit } from "./installation.js";
 import { preInstallMessage, postInstallMessage } from "./output.js";
@@ -24,12 +24,11 @@ export async function createProject(directory, __dirname) {
       directory
     );
     process.chdir(projectPath);
-    const hasYarn = await which("yarn", { nothrow: true });
-    const command = hasYarn ? "yarn" : "npm";
+    const command = await getCommand();
     preInstallMessage(projectName, command);
     await initializeGit(projectPath);
     await installDependencies(command, projectPath);
-    const _command = hasYarn ? "yarn" : "npm run";
+    const _command = command.includes("npm") ? "npm run" : "yarn";
     postInstallMessage(projectName, _command);
   } catch (err) {
     console.error(chalk.red.bold("The following error occurred:", err));

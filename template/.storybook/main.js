@@ -1,24 +1,33 @@
-const webpackConfig = require("../webpack.config")({ WEBPACK_SERVE: true });
+import webpackConfig from "../webpack.config";
+const _webpackConfig = webpackConfig({ WEBPACK_SERVE: true });
 
-module.exports = {
+export default {
   stories: ["../**/stories.tsx"],
-  addons: ["@storybook/addon-essentials"],
-  core: { builder: "webpack5" },
+  addons: [
+    "@storybook/addon-essentials",
+    "@storybook/addon-actions",
+    "@storybook/addon-interactions",
+  ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: { fastRefresh: true },
+    options: {
+      fastRefresh: true,
+    },
   },
   webpackFinal: async (config) => {
     return {
       ...config,
       resolve: {
         ...config.resolve,
-        ...webpackConfig.resolve,
+        ..._webpackConfig.resolve,
       },
       module: {
         ...config.module,
-        rules: [...webpackConfig.module.rules],
+        rules: [..._webpackConfig.module.rules],
       },
     };
+  },
+  docs: {
+    autodocs: true,
   },
 };

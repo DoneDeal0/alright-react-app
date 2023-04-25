@@ -1,9 +1,14 @@
 import React from "react";
 
 interface ITitle {
-  title: string;
+  value: string;
+  onClick: () => void;
 }
 
-export default function Title({ title }: ITitle) {
-  return <h1>{title}</h1>;
+export default function Title({ value, onClick }: ITitle) {
+  return (
+    <h1 data-testid="root" onClick={onClick}>
+      {value}
+    </h1>
+  );
 }

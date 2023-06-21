@@ -3,7 +3,7 @@
 # ALRIGHT REACT APP
 
 Professional React app generator. Comes with an exposed, unopinionated, high performance configuration.
-Jest, SWC, Storybook, Typescript 5, Webpack 5.
+Jest, SWC, Storybook 7, Typescript 5, Webpack 5.
 
 <img width="483" alt="screenshot" src="https://user-images.githubusercontent.com/43271780/233714020-52d818b3-5080-4b54-b328-b68832661fc3.png">
 

@@ -38,7 +38,7 @@ export function gitMessage(hasGit) {
 }
 
 const runLine = (name) =>
-  `now run ${chalk.bgYellow.black.bold(`cd ${name}`)} to have fun!`;
+  `now run ${chalk.bgYellow.black.bold(`cd ${name}`)} to get started!`;
 
 export function postInstallMessage(projectName, command) {
   console.log(
@@ -63,6 +63,21 @@ export function postInstallMessage(projectName, command) {
     "\n",
     chalk.yellow.bold("TEST"),
     `: ${command} test`,
+    "\n"
+  );
+}
+
+
+export function errorMessage(error) {
+  console.error(chalk.red.bold("The following error occurred:", error));
+}
+
+export function nodeErrorMessage() {
+  console.error(
+    "\n",
+    chalk.red.bold(
+      `Meltwater app boilerplate requires Node 18.0.0 or higher. Your version is ${process.versions.node}.`
+    ),
     "\n"
   );
 }

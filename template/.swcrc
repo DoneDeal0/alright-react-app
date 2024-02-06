@@ -1,5 +1,6 @@
 {
   "jsc": {
+    "baseUrl": "./",
     "parser": {
       "syntax": "typescript",
       "tsx": true,

@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 "use strict";
-import chalk from "chalk";
 import fs from "fs";
 import inquirer from "inquirer";
 import path from "path";
 import { getCommand } from "./checks.js";
 import { createDirectoryContent } from "./create-directory-content.js";
 import { installDependencies, initializeGit } from "./installation.js";
-import { preInstallMessage, postInstallMessage } from "./output.js";
+import { errorMessage, preInstallMessage, postInstallMessage } from "./output.js";
 import { question } from "./question.js";
 
 export async function createProject(directory, __dirname) {
@@ -28,9 +27,8 @@ export async function createProject(directory, __dirname) {
     preInstallMessage(projectName, command);
     await initializeGit(projectPath);
     await installDependencies(command, projectPath);
-    const _command = command.includes("npm") ? "npm run" : "yarn";
-    postInstallMessage(projectName, _command);
+    postInstallMessage(projectName, "npm");
   } catch (err) {
-    console.error(chalk.red.bold("The following error occurred:", err));
+    errorMessage(err)
   }
 }

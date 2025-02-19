@@ -64,13 +64,13 @@ Once the application is created, type `cd my-app'.
 
 # COMMANDS
 
-**DEV**: `yarn|npm run dev`
+**DEV**: `npm run dev`
 
-**BUILD**: `yarn|npm run build`
+**BUILD**: `npm run build`
 
-**STORYBOOK**: `yarn|npm run storybook`
+**STORYBOOK**: `npm run storybook`
 
-**TEST**: `yarn|npm run test`
+**TEST**: `npm run test`
 
 # STORYBOOK
 

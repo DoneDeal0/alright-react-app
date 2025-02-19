@@ -1,6 +1,6 @@
 {
   "name": "alright-react-app",
-  "version": "2.0.5",
+  "version": "2.0.7",
   "description": "Professional React app generator. Shipped with an exposed, unopinionated, highly-performant config. Jest-SWC, Storybook, SWC, Typescript, Webpack 5.",
   "main": "index.js",
   "author": "DoneDeal0",
@@ -26,10 +26,10 @@
     "url": "git+https://github.com/DoneDeal0/alright-react-app"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
-    "inquirer": "^9.2.14",
-    "ora": "^8.0.1",
-    "which": "^4.0.0"
+    "chalk": "^5.4.1",
+    "inquirer": "^12.4.2",
+    "ora": "^8.2.0",
+    "which": "^5.0.0"
   },
   "engines": {
     "node": ">=18.0.0"

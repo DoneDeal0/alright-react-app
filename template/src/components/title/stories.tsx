@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { within, userEvent } from "@storybook/testing-library";
 import { action } from "@storybook/addon-actions";
 import { expect } from "@storybook/jest";
+import type { Meta, StoryObj } from "@storybook/react";
+import { userEvent, within } from "@storybook/testing-library";
 import Title from ".";
 
 const meta: Meta<typeof Title> = {
@@ -26,9 +26,9 @@ export const Test: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const title = canvas.getByTestId("root");
-    expect(title).toBeInTheDocument();
-    userEvent.click(title);
-    expect(title).toHaveTextContent("Hello world");
+    await expect(title).toBeInTheDocument();
+    await userEvent.click(title);
+    await expect(title).toHaveTextContent("Hello world");
   },
 };
 

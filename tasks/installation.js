@@ -6,7 +6,7 @@ import { gitMessage } from "./output.js";
 
 export async function installDependencies(command, projectPath) {
   return new Promise((resolve, reject) => {
-    const installationProcess = spawn(command, ["install"], {
+    const installationProcess = spawn(command, ["install --force"], {
       cwd: projectPath,
       stdio: "ignore",
     });

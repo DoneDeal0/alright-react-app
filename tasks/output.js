@@ -76,7 +76,7 @@ export function nodeErrorMessage() {
   console.error(
     "\n",
     chalk.red.bold(
-      `Meltwater app boilerplate requires Node 18.0.0 or higher. Your version is ${process.versions.node}.`
+      `Alright React App requires Node 18.0.0 or higher. Your version is ${process.versions.node}.`
     ),
     "\n"
   );
